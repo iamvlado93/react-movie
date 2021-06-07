@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(1, 1, 17, 1) 35%,
+    rgba(163, 1, 212, 1) 100%
+  );
+}
+
+.header-buttons {
+  display: flex;
+  list-style-type: none;
+}
+
+.header-logo {
+  font-size: 3rem;
+  color: rgb(255, 255, 255);
+}
+
+.header-button,
+.header-logo {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.header-button {
+  width: 5rem;
+  border: 2px solid black;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.header-button:hover {
+  border: 2px solid rgb(255, 255, 255);
+  color: white;
+  transition: 0.4s ease-in-out;
+}
