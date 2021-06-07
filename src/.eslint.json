@@ -1,0 +1,7 @@
+{
+    "extends": ["airbnb", "prettier"],
+    "pluging": ["prettier"],
+    "rules": {
+        "no-unused-vars": "off"
+    }
+}
