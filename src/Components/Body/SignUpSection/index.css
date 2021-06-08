@@ -1,0 +1,30 @@
+.body-container {
+  padding: 0.5rem;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-title {
+  font-size: 4rem;
+  padding: 0.8rem;
+  color: rgb(255, 255, 255);
+}
+
+.container-signup {
+  padding: 1rem;
+  font-size: 3rem;
+  color: rgb(255, 255, 255);
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.container-signup:hover {
+  color: violet;
+  border: 2px solid violet;
+  transition: 0.4s ease-in-out;
+}
