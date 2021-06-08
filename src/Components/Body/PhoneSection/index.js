@@ -1,6 +1,6 @@
 import React from 'react';
 
-import phone from '../Images/phone.png';
+import phone from '../../Images/phone.png';
 
 import'./index.css';
 
