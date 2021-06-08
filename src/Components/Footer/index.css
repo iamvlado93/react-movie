@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 15vh;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(1, 7, 17, 1) 100%,
+    rgba(163, 1, 212, 1) 100%
+  );
+}
+
+.footer-icons li {
+  padding: 0.2rem;
+  margin: 0.2rem;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.footer-icons li:hover {
+  color: rgba(163, 1, 212, 1);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.copyrights {
+  padding: 0.2rem;
+  margin: 0.2rem;
+  color: rgb(255, 255, 255);
+}
