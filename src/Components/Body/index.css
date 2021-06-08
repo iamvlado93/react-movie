@@ -1,0 +1,11 @@
+* {
+  font-family: 'Bebas Neue';
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./Images//background.png);
+}
