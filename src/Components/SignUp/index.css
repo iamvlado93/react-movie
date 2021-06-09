@@ -15,6 +15,7 @@
   font-size: 1.2rem;
   justify-content: center;
   flex-direction: column;
+  background: rgba(255, 255, 255, 0.048);
   border: 2px solid rgb(140, 0, 175);
   border-radius: 20px;
 }
@@ -33,7 +34,8 @@ input[type='password'] {
   padding: 0.5rem;
   margin: 0.5rem;
   font-size: 1.2rem;
-  border: 1px solid rgb(140, 0, 175);
+  border: 2px solid rgb(140, 0, 175);
+  background-image: rgba(255, 255, 255, 0.062);
   border-radius: 20px;
 }
 
@@ -49,11 +51,11 @@ input[type='password'] {
   justify-content: center;
   margin: 0.3rem;
   padding: 0.3rem;
-  height: 2rem;
+  height: 1.8rem;
   font-size: 1.3rem;
   text-align: center;
   background: transparent;
-  color: white;
+  color: rgb(255, 255, 255);
   border: 2px solid rgb(255, 255, 255);
   border-radius: 20px;
   text-align: center;
