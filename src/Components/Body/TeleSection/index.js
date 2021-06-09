@@ -1,6 +1,6 @@
 import React from 'react';
 
-import tv from '../Images/tv.png';
+import tv from '../../Images/tv.png';
 
 import'./index.css';
 
