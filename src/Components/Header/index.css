@@ -18,20 +18,20 @@
 
 .header-logo {
   font-size: 3rem;
-  color: rgb(255, 255, 255);
 }
 
 .header-button,
 .header-logo {
   margin: 0.5rem;
   padding: 0.5rem;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
   cursor: pointer;
 }
 
 .header-button {
   width: 5rem;
   border: 2px solid rgb(255, 255, 255);
-  color: rgb(255, 255, 255);
   border-radius: 20px;
   text-align: center;
 }
