@@ -8,6 +8,8 @@ import Footer from './Components/Footer';
 import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
 
+import ROUTES from './Const/Routes';
+
 function App() {
   return (
     <Router>
@@ -15,13 +17,13 @@ function App() {
         <Header />
         <div className='content'>
           <Switch>
-            <Route exact path='/'>
+            <Route exact path={ROUTES.HOME}>
               <Body />
             </Route>
-            <Route path='/signup'>
+            <Route path={ROUTES.SIGN_UP}>
               <SignUp />
             </Route>
-            <Route path='/signin'>
+            <Route path={ROUTES.SIGN_IN}>
               <SignIn />
             </Route>
           </Switch>
