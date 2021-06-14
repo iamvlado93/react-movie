@@ -12,7 +12,7 @@ function Header() {
         <Link className='header-logo' to={ROUTES.HOME}>Belflix</Link>
         <ul className='header-buttons'>
           <Link className='header-button' to={ROUTES.SIGN_UP}>Sign Up</Link>
-          <li className='header-button'>Sign In</li>
+          <Link className='header-button' to={ROUTES.SIGN_IN}>Sign In</Link>
         </ul>
       </div> 
     );

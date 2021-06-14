@@ -6,6 +6,9 @@ import Header from './Components/Header';
 import Body from './Components/Body';
 import Footer from './Components/Footer';
 import SignUp from './Components/SignUp';
+import SignIn from './Components/SignIn';
+
+import ROUTES from './Const/Routes';
 
 function App() {
   return (
@@ -14,11 +17,14 @@ function App() {
         <Header />
         <div className='content'>
           <Switch>
-            <Route exact path='/'>
+            <Route exact path={ROUTES.HOME}>
               <Body />
             </Route>
-            <Route path='/signup'>
+            <Route path={ROUTES.SIGN_UP}>
               <SignUp />
+            </Route>
+            <Route path={ROUTES.SIGN_IN}>
+              <SignIn />
             </Route>
           </Switch>
         </div>
