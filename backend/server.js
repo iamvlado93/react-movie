@@ -1,29 +1,24 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const config = require('config');
-
+const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
+const cors = require("cors");
+const config = require("config");
 
-app.use('/api/auth', require('./routes/auth-route'))
+app.use(cors());
+app.use(express.json());
 
-const PORT = config.get('port') || 5000
+app.use("/api/auth", require("./routes/auth-route"));
 
-async function start() {
-    try {
-        await mongoose.connect(config.get('mongoURL'), {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true
-        })
-        app.listen(PORT,() => {console.log(`Server is running on port ${PORT}`)});
-    } catch (e) {
-        console.log('Server error', e.message)
-        process.exit( 1 )
-    }
-}
+const PORT = config.get("port") || 5000;
 
-start()
+mongoose.connect(config.get("mongoURL"), {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
-// app.use(cors());
-// app.use(express.json());
+app.use("/", require("./routes/auth-route"));
 
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

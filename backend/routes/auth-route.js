@@ -1,31 +1,28 @@
-const { Router } = require('express');
-const User = require('../models/user');
-const router = Router();
-const bcrypt = require('bcryptjs')
+const express = require("express");
+const router = express.Router();
 
-router.post('/register', async (req, res) => {
-    try {
-        const {firstName, lastName, email, password} = req.body
-        const candidate = await User.findOne({ email })
+const User = require("../models/user");
 
-        if(candidate) {
-            return res.status(400).json({ message: "Such email has already been registered"})
-        }
-        
-        const hashedPassword = await bcrypt.hash(password, 12)
-        const user = new User({ firstName, lastName, email, password: hashedPassword})
-        
-        await user.save()
+// Registration route
 
-        res.status(201).json({ message: "The user has been created"})
+router.route("/register").post((req, res) => {
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+  const email = req.body.email;
+  const password = req.body.password;
+  const rePassword = req.body.rePassword;
+  const newUser = new User({
+    firstName,
+    lastName,
+    email,
+    password,
+    rePassword,
+  });
+  newUser.save();
+});
 
-    } catch (e) {
-        res.status(500).json({ message: "Ooops, something went wrong. Try again."})
-    }
-})
-
-router.post('/login', (req, res) => {
-
-})
+router.route("/user").get((req, res) => {
+  User.find().then((receivedUser) => res.json(receivedUser));
+});
 
 module.exports = router;
