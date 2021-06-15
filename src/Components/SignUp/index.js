@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 import { useFormik } from 'formik';
 import axios from 'axios';
@@ -8,6 +9,8 @@ import swal from 'sweetalert';
 import './index.css';
 
 function SignUp() {
+  let history = useHistory();
+
   const validate = (values) => {
     const errors = {};
 
@@ -66,6 +69,7 @@ function SignUp() {
         icon: 'success',
         button: 'Continue',
       });
+      history.push('/signin');
     },
   });
 
