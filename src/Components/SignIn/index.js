@@ -1,69 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { useFormik } from 'formik';
+import { useHistory } from 'react-router';
 
-import'./index.css';
+import axios from 'axios';
+
+import './index.css';
 
 function SignIn() {
+  const [logName, setLogName] = useState('');
+  const [logPass, setLogPass] = useState('');
 
-  const validate = values => {
+  let history = useHistory();
 
-    const errors = {}
+  const login = () => {
+    axios({
+      method: 'POST',
+      data: {
+        username: logName,
+        password: logPass,
+      },
+      withCredentials: true,
+      url: 'http://localhost:5000/login',
+    })
+      .then((res) => console.log(res))
+      .then(history.push('/profile'));
+  };
 
-      if(!values.email) {
-        errors.email = 'Required'
-      }
+  return (
+    <div className="signin">
+      <form onSubmit={login} className="signin-form">
+        <h2>Login</h2>
+        <div className="form-group">
+          <input
+            placeholder="Email"
+            className="form-control"
+            onChange={(e) => setLogName(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            placeholder="Password"
+            className="form-control"
+            onChange={(e) => setLogPass(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="btn btn-secondary btn-lg btn-block">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+}
 
-      if(!values.password) {
-        errors.password = 'Required'
-      }
-      return errors;
-  }
-
-  const formik = useFormik({
-    initialValues:{
-      email: '',
-      password: '',
-    },
-    validate,
-    onSubmit: values => {
-      console.log(values)
-    },
-  })
-
-    return (
-      <div className="signin">
-          <form onSubmit={formik.handleSubmit} className='signin-form'>
-            <h2>Belflix</h2>
-
-            <input 
-              onChange={formik.handleChange} 
-              value={formik.values.email} 
-              name='email'
-              type='text'
-              onBlur={formik.handleBlur}
-              placeholder='Email Address'>
-            </input>
-
-            {formik.touched.email && formik.errors.email ?
-              <p className='signin-error'>{formik.errors.email}</p> : null}
-
-            <input 
-              onChange={formik.handleChange} 
-              value={formik.values.password} 
-              type='password' 
-              name='password'
-              onBlur={formik.handleBlur}
-              placeholder='Password'>
-            </input>
-
-            {formik.touched.password && formik.errors.password ?
-              <p className='signin-error'>{formik.errors.password}</p> : null}
-
-            <button className='signin-button' type='submit'>Register</button>
-          </form>
-      </div>
-    );
-  }
-  
-  export default SignIn;
+export default SignIn;

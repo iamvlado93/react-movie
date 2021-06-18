@@ -1,12 +1,13 @@
 import './App.css';
 
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './Components/Header';
 import Body from './Components/Body';
 import Footer from './Components/Footer';
 import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
+import Profile from './Components/Profile';
 
 import ROUTES from './Const/Routes';
 
@@ -15,7 +16,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <div className='content'>
+        <div className="content">
           <Switch>
             <Route exact path={ROUTES.HOME}>
               <Body />
@@ -25,6 +26,9 @@ function App() {
             </Route>
             <Route path={ROUTES.SIGN_IN}>
               <SignIn />
+            </Route>
+            <Route path={ROUTES.PROFILE}>
+              <Profile />
             </Route>
           </Switch>
         </div>
