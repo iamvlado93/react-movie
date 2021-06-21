@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
 import { useFormik } from 'formik';
@@ -10,6 +10,7 @@ import swal from 'sweetalert';
 import './index.css';
 
 function SignUp() {
+  const [regError, setRegError] = useState(false);
   const { handleSubmit, handleChange, values, touched, errors, handleBlur } = useFormik({
     initialValues: {
       regFirstName: '',
@@ -35,9 +36,9 @@ function SignUp() {
         .oneOf([Yup.ref('regPassword'), null], 'Password does not match')
         .required('Required'),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       try {
-        axios({
+        await axios({
           method: 'POST',
           data: {
             firstName: values.regFirstName,
@@ -48,14 +49,17 @@ function SignUp() {
           },
           withCredentials: true,
           url: 'http://localhost:5000/register',
-        }).then((res) => console.log(res));
-        swal({
-          title: 'Well Done!',
-          text: 'You have successfully registered!',
-          icon: 'success',
-          button: 'Continue',
-        }).then(history.push('/signin'));
+        }).then((res) => {
+          history.push('/signin');
+          swal({
+            title: 'Well Done!',
+            text: 'You have successfully registered!',
+            icon: 'success',
+            button: 'Continue',
+          }).then(history.push('/signin'));
+        });
       } catch (err) {
+        setRegError(true);
         console.error(err);
       }
     },
@@ -132,6 +136,7 @@ function SignUp() {
         <button type="submit" className="btn btn-secondary btn-ls btn-block">
           Submit
         </button>
+        {regError && <p>Such email already exists</p>}
       </form>
     </div>
   );
