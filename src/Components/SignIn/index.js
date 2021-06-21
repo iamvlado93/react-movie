@@ -12,18 +12,23 @@ function SignIn() {
 
   let history = useHistory();
 
-  const login = () => {
-    axios({
-      method: 'POST',
-      data: {
-        username: logName,
-        password: logPass,
-      },
-      withCredentials: true,
-      url: 'http://localhost:5000/login',
-    })
-      .then((res) => console.log(res))
-      .then(history.push('/profile'));
+  const login = (e) => {
+    try {
+      e.preventDefault();
+      axios({
+        method: 'POST',
+        data: {
+          username: logName,
+          password: logPass,
+        },
+        withCredentials: true,
+        url: 'http://localhost:5000/login',
+      })
+        .then((res) => console.log(res))
+        .then(history.push('/profile'));
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
