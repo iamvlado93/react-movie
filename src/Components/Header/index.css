@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
+  height: 11vh;
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 1) 0%,
@@ -17,27 +17,36 @@
 }
 
 .header-logo {
-  font-size: 3rem;
+  padding: 0.1rem;
+  margin-left: 1rem;
+  font-size: 3.6rem;
+  color: rgb(183, 50, 216);
+  font-family: 'Ma Shan Zheng';
 }
 
-.header-button,
-.header-logo {
+.header-logo:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+
+.header-button {
+  width: 7rem;
   margin: 0.5rem;
   padding: 0.5rem;
-  color: rgb(255, 255, 255);
+  font-family: 'Ma Shan Zheng';
+  font-size: 1.4rem;
+  color: rgb(183, 50, 216);
+  border: 2px solid rgb(183, 50, 216);
+  border-radius: 20px;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
 }
 
-.header-button {
-  width: 5rem;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 20px;
-  text-align: center;
-}
-
 .header-button:hover {
-  border: 2px solid rgb(140, 0, 175);
-  color: rgb(140, 0, 175);
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
   transition: 0.4s ease-in-out;
 }

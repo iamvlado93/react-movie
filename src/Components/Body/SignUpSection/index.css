@@ -8,23 +8,24 @@
 }
 
 .container-title {
-  font-size: 4rem;
-  padding: 0.8rem;
-  color: rgb(255, 255, 255);
+  font-size: 6rem;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  color: rgb(183, 50, 216);
 }
 
 .container-signup {
-  padding: 1rem;
-  font-size: 3rem;
-  color: rgb(255, 255, 255);
-  border: 3px solid rgb(255, 255, 255);
-  border-radius: 20px;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  font-size: 4rem;
+  color: rgb(183, 50, 216);
+  font-family: 'Ma Shan Zheng';
   background: transparent;
   cursor: pointer;
 }
 
 .container-signup:hover {
-  color: violet;
-  border: 2px solid violet;
+  color: rgb(255, 255, 255);
   transition: 0.4s ease-in-out;
+  text-decoration: none;
 }
