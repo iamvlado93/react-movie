@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
 import axios from 'axios';
-import swal from 'sweetalert';
 
 import './index.css';
 
@@ -28,7 +27,7 @@ function SignIn() {
         url: 'http://localhost:5000/login',
       }).then((res) => {
         console.log(res);
-        // history.push('/profile');
+        history.push('/profile');
         setData(res.data);
       });
     } catch (err) {
