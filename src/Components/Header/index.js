@@ -13,10 +13,10 @@ function Header() {
         Belflix
       </Link>
       <ul className="header-buttons">
-        <Link className="header-button" to={ROUTES.SIGN_UP}>
+        <Link className="header-button" to={ROUTES.REGISTER}>
           Sign Up
         </Link>
-        <Link className="header-button" to={ROUTES.SIGN_IN}>
+        <Link className="header-button" to={ROUTES.LOGIN}>
           Sign In
         </Link>
       </ul>
