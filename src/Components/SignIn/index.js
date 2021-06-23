@@ -3,19 +3,21 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
 import axios from 'axios';
+import swal from 'sweetalert';
 
 import './index.css';
 
 function SignIn() {
   const [logName, setLogName] = useState('');
   const [logPass, setLogPass] = useState('');
+  const [logError, setLogError] = useState(false);
 
   let history = useHistory();
 
-  const login = (e) => {
+  const login = async (e) => {
     try {
       e.preventDefault();
-      axios({
+      await axios({
         method: 'POST',
         data: {
           username: logName,
@@ -23,10 +25,15 @@ function SignIn() {
         },
         withCredentials: true,
         url: 'http://localhost:5000/login',
-      })
-        .then((res) => console.log(res))
-        .then(history.push('/profile'));
+      }).then((res) => {
+        console.log(res);
+        history.push('/profile');
+        swal({
+          text: 'Welcome!',
+        });
+      });
     } catch (err) {
+      setLogError(true);
       console.error(err);
     }
   };
@@ -52,6 +59,7 @@ function SignIn() {
         <button type="submit" className="btn btn-secondary btn-lg btn-block">
           Submit
         </button>
+        {logError && <p>Incorrect email or password</p>}
       </form>
     </div>
   );
