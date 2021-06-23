@@ -23,3 +23,8 @@
 img {
   width: 24rem;
 }
+
+.container-left p {
+  font-size: 2.8rem;
+  color: rgb(183, 50, 216);
+}
