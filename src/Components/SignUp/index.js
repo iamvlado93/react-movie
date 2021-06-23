@@ -50,13 +50,13 @@ function SignUp() {
           withCredentials: true,
           url: 'http://localhost:5000/register',
         }).then((res) => {
-          history.push('/signin');
+          console.log(res);
           swal({
             title: 'Well Done!',
             text: 'You have successfully registered!',
             icon: 'success',
             button: 'Continue',
-          }).then(history.push('/signin'));
+          }).then(history.push('/login'));
         });
       } catch (err) {
         setRegError(true);

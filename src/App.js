@@ -21,10 +21,10 @@ function App() {
             <Route exact path={ROUTES.HOME}>
               <Body />
             </Route>
-            <Route path={ROUTES.SIGN_UP}>
+            <Route path={ROUTES.REGISTER}>
               <SignUp />
             </Route>
-            <Route path={ROUTES.SIGN_IN}>
+            <Route path={ROUTES.LOGIN}>
               <SignIn />
             </Route>
             <Route path={ROUTES.PROFILE}>

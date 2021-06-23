@@ -10,7 +10,7 @@ function SignUpSection() {
   return (
     <div className="body-container">
       <h2 className="container-title">Ready to start?</h2>
-      <Link className="container-signup" to={ROUTES.SIGN_UP}>
+      <Link className="container-signup" to={ROUTES.REGISTER}>
         Sign Up
       </Link>
     </div>
