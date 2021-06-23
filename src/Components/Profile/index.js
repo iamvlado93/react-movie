@@ -1,5 +1,7 @@
 import React from 'react';
 
+import data from '../Movies/data';
+
 import './index.css';
 
 function Profile() {
