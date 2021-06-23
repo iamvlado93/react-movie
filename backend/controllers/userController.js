@@ -58,4 +58,6 @@ const userInfo = (req, res) => {
     console.log(req.body);
 };
 
+// Exports
+
 module.exports = { signUp, signIn, userInfo };
