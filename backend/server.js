@@ -95,7 +95,7 @@ app.post("/login", async (req, res, next) => {
       else {
         req.logIn(user, (err) => {
           if (err) throw err;
-          res.status(200).json("Successfully authenticated");
+          res.status(200).send(user);
           console.log(req.user);
         });
       }

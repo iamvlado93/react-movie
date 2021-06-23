@@ -11,6 +11,7 @@ function SignIn() {
   const [logName, setLogName] = useState('');
   const [logPass, setLogPass] = useState('');
   const [logError, setLogError] = useState(false);
+  const [data, setData] = useState(null);
 
   let history = useHistory();
 
@@ -27,10 +28,8 @@ function SignIn() {
         url: 'http://localhost:5000/login',
       }).then((res) => {
         console.log(res);
-        history.push('/profile');
-        swal({
-          text: 'Welcome!',
-        });
+        // history.push('/profile');
+        setData(res.data);
       });
     } catch (err) {
       setLogError(true);
@@ -60,6 +59,11 @@ function SignIn() {
           Submit
         </button>
         {logError && <p>Incorrect email or password</p>}
+        {data && (
+          <h1>
+            Welcome {data.firstName} {data.lastName}
+          </h1>
+        )}
       </form>
     </div>
   );
