@@ -6,6 +6,7 @@ const ROUTES = {
   FAVOURITES: '/profile/favourites',
   USER_INFO: '/profile/user',
   LOGOUT: '/',
+  ADMIN: '/admin',
 };
 
 export default ROUTES;

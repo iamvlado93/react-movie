@@ -74,6 +74,7 @@ app.post("/register", async (req, res) => {
           email: req.body.email,
           password: hashedPassword,
           rePassword: req.body.rePassword,
+          isAdmin: req.body.isAdmin,
         });
         newUser.save();
         res.status(201).json({ message: "User Created" });
@@ -103,6 +104,6 @@ app.post("/login", async (req, res, next) => {
   }
 });
 
-app.post("/user", (req, res) => {
+app.get("/profile", (req, res) => {
   console.log(req.body);
 });

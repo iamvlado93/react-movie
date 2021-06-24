@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import Register from './Components/Registration';
 import Login from './Components/Login';
 import Profile from './Components/Profile';
+import Admin from './Components/Admin';
 
 import ROUTES from './Const/Routes';
 
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path={ROUTES.PROFILE}>
               <Profile />
+            </Route>
+            <Route path={ROUTES.ADMIN}>
+              <Admin />
             </Route>
           </Switch>
           <Footer />

@@ -1,0 +1,12 @@
+.admin-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #ffffff;
+  height: 75vh;
+}
+
+.image-uploader {
+  width: 12rem;
+}
