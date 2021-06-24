@@ -8,6 +8,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 
 const User = require("./models/userSchema.js");
+const Movie = require("./models/movieSchema.js");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 async function start() {
   try {
     await mongoose.connect(
-      "mongodb+srv://vlad:1234@cluster0.jv4fk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      "mongodb+srv://vlad:1234@cluster0.jv4fk.mongodb.net/myFirstDatabase",
       {
         useCreateIndex: true,
         useNewUrlParser: true,
@@ -104,6 +105,40 @@ app.post("/login", async (req, res, next) => {
   }
 });
 
-app.get("/profile", (req, res) => {
-  console.log(req.body);
+app.get("/users", (req, res) => {
+  User.find().then((receivedUser) => res.json(receivedUser));
+});
+
+// Movie routes
+
+app.post("/admin", async (req, res) => {
+  try {
+    Movie.findOne({ movieName: req.body.movieName }, async (err, doc) => {
+      if (err) throw err;
+      if (doc)
+        return res
+          .status(300)
+          .json({ message: `Movie ${req.body.movieName} already exists` });
+      if (!doc) {
+        const newMovie = new Movie({
+          movieName: req.body.movieName,
+          movieDescription: req.body.movieDescription,
+          movieCountry: req.body.movieCountry,
+          movieYear: req.body.movieYear,
+          movieGenre: req.body.movieGenre,
+          movieDuration: req.body.movieDuration,
+          movieRating: req.body.movieRating,
+        });
+        newMovie.save();
+        res.status(201).json({ message: "Movie was added" });
+      }
+    });
+    console.log(req.body);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.get("/movies", (req, res) => {
+  Movie.find().then((receivedMovie) => res.json(receivedMovie));
 });
