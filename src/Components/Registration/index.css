@@ -1,4 +1,4 @@
-.signup {
+.registration {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,7 +7,7 @@
   height: 75vh;
 }
 
-.signup-form {
+.registration-form {
   padding: 1rem;
   margin: 1rem;
 }

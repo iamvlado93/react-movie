@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 import { useHistory } from 'react-router';
-
 import axios from 'axios';
+
+import HeaderProfile from '../Header';
 
 import './index.css';
 
@@ -37,33 +38,36 @@ function SignIn() {
   };
 
   return (
-    <div className="signin">
-      <form onSubmit={login} className="signin-form">
-        <h2>Login</h2>
-        <div className="form-group">
-          <input
-            placeholder="Email"
-            className="form-control"
-            onChange={(e) => setLogName(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            placeholder="Password"
-            className="form-control"
-            onChange={(e) => setLogPass(e.target.value)}
-          />
-        </div>
-        <button type="submit" className="btn btn-secondary btn-lg btn-block">
-          Submit
-        </button>
-        {logError && <p>Incorrect email or password</p>}
-        {/* {data && (
+    <div className="login-page">
+      <HeaderProfile />
+      <div className="signin">
+        <form onSubmit={login} className="signin-form">
+          <h2>Login</h2>
+          <div className="form-group">
+            <input
+              placeholder="Email"
+              className="form-control"
+              onChange={(e) => setLogName(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              placeholder="Password"
+              className="form-control"
+              onChange={(e) => setLogPass(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="btn btn-secondary btn-lg btn-block">
+            Submit
+          </button>
+          {logError && <p>Incorrect email or password</p>}
+          {/* {data && (
           <h1>
             Welcome {data.firstName} {data.lastName}
           </h1>
         )} */}
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
