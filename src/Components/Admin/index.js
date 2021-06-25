@@ -9,12 +9,34 @@ import './index.css';
 
 function Admin() {
   const [adminMovieName, setAdminMovieName] = useState('');
+  const [adminMovieImage, setAdminMovieImage] = useState('');
   const [adminMovieDescription, setAdminMovieDescription] = useState('');
   const [adminMovieCountry, setAdminMovieCountry] = useState('');
   const [adminMovieYear, setAdminMovieYear] = useState('');
   const [adminMovieGenre, setAdminMovieGenre] = useState('');
   const [adminMovieDuration, setAdminMovieDuration] = useState('');
   const [adminMovieRating, setAdminMovieRating] = useState('');
+
+  const uploadImage = async (e) => {
+    console.log(e.target.files);
+    const image = e.target.files[0];
+    const base64 = await convertBase64(image);
+    console.log(base64);
+    setAdminMovieImage(base64);
+  };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
 
   const AddMovie = async (e) => {
     try {
@@ -23,6 +45,7 @@ function Admin() {
         method: 'POST',
         data: {
           movieName: adminMovieName,
+          movieImage: adminMovieImage,
           movieDescription: adminMovieDescription,
           movieCountry: adminMovieCountry,
           movieYear: adminMovieYear,
@@ -57,9 +80,15 @@ function Admin() {
               onChange={(e) => setAdminMovieName(e.target.value)}
             />
           </div>
-          {/* <div className="image-uploader">
-            <input type="file" id="MoviePoster" value={values.moviePoster} />
-          </div> */}
+          <div className="image-uploader">
+            <input
+              type="file"
+              onChange={(e) => {
+                uploadImage(e);
+              }}
+            ></input>
+          </div>
+          <br />
           <div className="form-group">
             <input
               placeholder="Description"

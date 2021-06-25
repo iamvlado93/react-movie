@@ -21,7 +21,7 @@ async function start() {
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: true,
+        useFindAndModify: false,
       },
       console.log("Mongoose is connected")
     );
@@ -29,7 +29,7 @@ async function start() {
       console.log(`Server started on port ${PORT}`);
     });
   } catch (err) {
-    console.error(err);
+    console.error(err.message);
   }
 }
 
@@ -37,8 +37,8 @@ start();
 
 // Middleware --------------------------------------------
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -122,6 +122,7 @@ app.post("/admin", async (req, res) => {
       if (!doc) {
         const newMovie = new Movie({
           movieName: req.body.movieName,
+          movieImage: req.body.movieImage,
           movieDescription: req.body.movieDescription,
           movieCountry: req.body.movieCountry,
           movieYear: req.body.movieYear,
@@ -130,7 +131,7 @@ app.post("/admin", async (req, res) => {
           movieRating: req.body.movieRating,
         });
         newMovie.save();
-        res.status(201).json({ message: "Movie was added" });
+        res.status(201).json(res.receivedMovie);
       }
     });
     console.log(req.body);
@@ -144,5 +145,5 @@ app.get("/movies", (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-  Movie.find().then((foundMovie) => res.json(foundMovie));
+  Movie.find().then((receivedMovie) => res.json(receivedMovie));
 });
