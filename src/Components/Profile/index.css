@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
 .movie {
@@ -16,21 +15,34 @@
   padding: 0.1rem;
 }
 
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20rem;
+  height: 25rem;
+  padding: 0.2rem;
+  margin: 1rem;
+  background: rgba(255, 255, 255, 0.096);
+  border-radius: 20px;
+  text-align: center;
+}
+
+h4 {
+  color: rgb(255, 255, 255);
+}
+
 .movie__title {
   font-size: 2rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
 }
 
-.movie__image {
-  width: 15rem;
-  height: 22rem;
-}
-
 .movie__description {
   padding: 0.1rem;
   margin: 0.1rem;
-  font-size: 1rem;
+  font-size: 0.5rem;
+  color: rgb(255, 255, 255);
 }
 
 .movie__country,
