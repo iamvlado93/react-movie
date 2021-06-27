@@ -6,8 +6,9 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, require: true, unique: true },
   password: { type: String, require: true },
   rePassword: { type: String, require: true },
+  isAdmin: { type: Boolean, required: true, default: false },
 });
 
 const User = mongoose.model("User", UserSchema);
 
-module.exports = User
+module.exports = User;

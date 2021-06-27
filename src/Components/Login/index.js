@@ -23,13 +23,18 @@ function SignIn() {
         data: {
           username: logName,
           password: logPass,
+          isAdmin: false,
         },
         withCredentials: true,
         url: 'http://localhost:5000/login',
       }).then((res) => {
-        console.log(res);
-        history.push('/profile');
-        // setData(res.data);
+        if (res.data.isAdmin) {
+          history.push('/admin');
+        } else {
+          console.log(res);
+          history.push('/profile');
+          // setData(res.data);
+        }
       });
     } catch (err) {
       setLogError(true);
