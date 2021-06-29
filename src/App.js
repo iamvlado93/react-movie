@@ -8,6 +8,7 @@ import Register from './Components/Registration';
 import Login from './Components/Login';
 import Profile from './Components/Profile';
 import Admin from './Components/Admin';
+import MovieByID from './Components/MovieByID';
 
 import ROUTES from './Const/Routes';
 
@@ -20,17 +21,20 @@ function App() {
             <Route exact path={ROUTES.HOME}>
               <Body />
             </Route>
-            <Route path={ROUTES.REGISTER}>
+            <Route exact path={ROUTES.REGISTER}>
               <Register />
             </Route>
-            <Route path={ROUTES.LOGIN}>
+            <Route exact path={ROUTES.LOGIN}>
               <Login />
             </Route>
-            <Route path={ROUTES.PROFILE}>
+            <Route exact path={ROUTES.PROFILE}>
               <Profile />
             </Route>
-            <Route path={ROUTES.ADMIN}>
+            <Route exact path={ROUTES.ADMIN}>
               <Admin />
+            </Route>
+            <Route exact path={ROUTES.MOVIE_ID}>
+              <MovieByID />
             </Route>
           </Switch>
           <Footer />

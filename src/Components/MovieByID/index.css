@@ -1,0 +1,10 @@
+.movie-id {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 70.1vh;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+}

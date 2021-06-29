@@ -7,6 +7,7 @@ const ROUTES = {
   USER_INFO: '/profile/user',
   LOGOUT: '/',
   ADMIN: '/admin',
+  MOVIE_ID: '/profile/:id',
 };
 
 export default ROUTES;
