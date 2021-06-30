@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { Card } from 'react-bootstrap';
+
 import ProfileHeader from '../ProfileHeader';
 import { getMovies } from '../../Actions/movies';
-import { Card } from 'react-bootstrap';
+
+import ROUTES from '../../Const/Routes';
 
 import './index.css';
 
@@ -21,7 +24,7 @@ function Profile() {
       <ProfileHeader />
       <div className="profile">
         {movies.map((movie) => (
-          <Link key={movie.movieName} to={'/profile/' + movie._id}>
+          <Link to={ROUTES.MOVIE_ID + movie._id}>
             <Card
               style={{
                 display: 'flex',
@@ -51,9 +54,7 @@ function Profile() {
                   color: 'rgb(183, 50, 216)',
                   fontFamily: 'Ma Shan Zheng',
                 }}
-              >
-                {movie.movieYear}
-              </Card.Subtitle>
+              ></Card.Subtitle>
               <Card.Subtitle
                 style={{
                   fontSize: '1.5rem',

@@ -4,7 +4,7 @@ const ROUTES = {
   LOGIN: '/login',
   PROFILE: '/profile',
   FAVOURITES: '/profile/favourites',
-  USER_INFO: '/profile/user',
+  PERSONAL_DETAILS: '/profile/user',
   LOGOUT: '/',
   ADMIN: '/admin',
   MOVIE_ID: '/profile/:id',

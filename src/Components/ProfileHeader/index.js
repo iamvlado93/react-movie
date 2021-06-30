@@ -16,7 +16,7 @@ function ProfileHeader() {
         <Link className="profile-header__button" to={ROUTES.FAVOURITES}>
           Favourites
         </Link>
-        <Link className="profile-header__button" to={ROUTES.USER_INFO}>
+        <Link className="profile-header__button" to={ROUTES.PERSONAL_DETAILS}>
           Welcome
         </Link>
         <Link className="profile-header__button" to={ROUTES.LOGOUT}>
