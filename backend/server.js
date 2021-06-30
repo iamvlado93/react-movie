@@ -61,7 +61,7 @@ require("./config/passportConfig")(passport);
 
 app.post("/register", async (req, res) => {
   try {
-    User.findOne({ email: req.body.email }, async (err, doc) => {
+    await User.findOne({ email: req.body.email }, async (err, doc) => {
       if (err) throw err;
       if (doc)
         return res
@@ -89,7 +89,7 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res, next) => {
   try {
-    passport.authenticate("local", (err, user, info) => {
+    await passport.authenticate("local", (err, user, info) => {
       if (err) throw res;
       if (!user) return res.status(401).json("No such user exists");
       else {
@@ -113,7 +113,7 @@ app.get("/users", (req, res) => {
 
 app.post("/admin", async (req, res) => {
   try {
-    Movie.findOne({ movieName: req.body.movieName }, async (err, doc) => {
+    await Movie.findOne({ movieName: req.body.movieName }, (err, doc) => {
       if (err) throw err;
       if (doc)
         return res
@@ -146,4 +146,14 @@ app.get("/movies", (req, res) => {
 
 app.get("/profile", (req, res) => {
   Movie.find().then((receivedMovie) => res.json(receivedMovie));
+});
+
+app.get("/profile/:id", (req, res) => {
+  const movieId = req.params.id;
+  const movie = Movie.findById((foundMovie) => foundMovie._id === movieId);
+  if (movie) {
+    res.send(movie);
+  } else {
+    res.status(404).send({ msg: "Movie not found" });
+  }
 });

@@ -1,70 +1,30 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import axios from 'axios';
-import swal from 'sweetalert';
+import FileBase from 'react-file-base64';
 
 import Header from '../Header';
+import { createMovie } from '../../Actions/movies';
 
 import './index.css';
 
 function Admin() {
-  const [adminMovieName, setAdminMovieName] = useState('');
-  const [adminMovieImage, setAdminMovieImage] = useState('');
-  const [adminMovieDescription, setAdminMovieDescription] = useState('');
-  const [adminMovieCountry, setAdminMovieCountry] = useState('');
-  const [adminMovieYear, setAdminMovieYear] = useState('');
-  const [adminMovieGenre, setAdminMovieGenre] = useState('');
-  const [adminMovieDuration, setAdminMovieDuration] = useState('');
-  const [adminMovieRating, setAdminMovieRating] = useState('');
+  const [postMovie, setPostMovie] = useState({
+    movieName: '',
+    movieImage: '',
+    movieDescription: '',
+    movieCountry: '',
+    movieYear: '',
+    movieGenre: '',
+    movieDuration: '',
+    movieRating: '',
+  });
 
-  const uploadImage = async (e) => {
-    console.log(e.target.files);
-    const image = e.target.files[0];
-    const base64 = await convertBase64(image);
-    console.log(base64);
-    setAdminMovieImage(base64);
-  };
+  const dispatch = useDispatch();
 
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
-  const AddMovie = async (e) => {
-    try {
-      e.preventDefault();
-      await axios({
-        method: 'POST',
-        data: {
-          movieName: adminMovieName,
-          movieImage: adminMovieImage,
-          movieDescription: adminMovieDescription,
-          movieCountry: adminMovieCountry,
-          movieYear: adminMovieYear,
-          movieGenre: adminMovieGenre,
-          movieDuration: adminMovieDuration,
-          movieRating: adminMovieRating,
-        },
-        withCredentials: true,
-        url: 'http://localhost:5000/admin',
-      }).then((res) => {
-        console.log(res);
-        swal({
-          text: 'The movie has been added successfully',
-          button: 'Continue',
-        });
-      });
-    } catch (err) {
-      console.error(err);
-    }
+  const AddMovie = (e) => {
+    e.preventDefault();
+    dispatch(createMovie(postMovie));
   };
 
   return (
@@ -74,68 +34,74 @@ function Admin() {
         <form onSubmit={AddMovie} className="movie-form">
           <div className="form-group">
             <input
-              placeholder="Movie Name"
+              name="movieName"
+              placeholder="Title"
               className="form-control"
               id="MovieName"
-              onChange={(e) => setAdminMovieName(e.target.value)}
+              value={postMovie.movieName}
+              onChange={(e) => setPostMovie({ ...postMovie, movieName: e.target.value })}
             />
           </div>
           <div className="image-uploader">
-            <input
+            <FileBase
               type="file"
-              onChange={(e) => {
-                uploadImage(e);
-              }}
-            ></input>
+              multiple={false}
+              name="movieImage"
+              onDone={({ base64 }) => setPostMovie({ ...postMovie, movieImage: base64 })}
+            />
           </div>
           <br />
           <div className="form-group">
             <input
+              name="movieDescription"
               placeholder="Description"
               className="form-control"
-              name="MovieDescription"
-              id="MovieDescription"
-              onChange={(e) => setAdminMovieDescription(e.target.value)}
+              value={postMovie.movieDescription}
+              onChange={(e) => setPostMovie({ ...postMovie, movieDescription: e.target.value })}
             />
           </div>
           <div className="form-group">
             <input
+              name="movieCountry"
               placeholder="Country"
               className="form-control"
-              id="MovieCountry"
-              onChange={(e) => setAdminMovieCountry(e.target.value)}
+              value={postMovie.movieCountry}
+              onChange={(e) => setPostMovie({ ...postMovie, movieCountry: e.target.value })}
             />
           </div>
           <div className="form-group">
             <input
+              name="movieYear"
               placeholder="Year"
               className="form-control"
-              id="MovieYear"
-              onChange={(e) => setAdminMovieYear(e.target.value)}
+              value={postMovie.movieYear}
+              onChange={(e) => setPostMovie({ ...postMovie, movieYear: e.target.value })}
             />
           </div>
           <div className="form-group">
             <input
+              name="movieGenre"
               placeholder="Genre"
               className="form-control"
-              id="MovieGenre"
-              onChange={(e) => setAdminMovieGenre(e.target.value)}
+              value={postMovie.movieGenre}
+              onChange={(e) => setPostMovie({ ...postMovie, movieGenre: e.target.value })}
             />
           </div>
           <div className="form-group">
             <input
+              name="movieDuration"
               placeholder="Duration"
               className="form-control"
-              id="MovieDuration"
-              onChange={(e) => setAdminMovieDuration(e.target.value)}
+              value={postMovie.movieDuration}
+              onChange={(e) => setPostMovie({ ...postMovie, movieDuration: e.target.value })}
             />
           </div>
           <div className="form-group">
             <input
               placeholder="Rating"
               className="form-control"
-              id="MovieRating"
-              onChange={(e) => setAdminMovieRating(e.target.value)}
+              value={postMovie.movieRating}
+              onChange={(e) => setPostMovie({ ...postMovie, movieRating: e.target.value })}
             />
           </div>
           <button type="submit" className="btn btn-secondary btn-lg btn-block">
