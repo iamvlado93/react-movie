@@ -1,4 +1,4 @@
-const reducer = (movies = [], action) => {
+const movieReducer = (movies = [], action) => {
   switch (action.type) {
     case 'FETCH_ALL':
       return action.payload;
@@ -9,4 +9,4 @@ const reducer = (movies = [], action) => {
   }
 };
 
-export default reducer;
+export default movieReducer;

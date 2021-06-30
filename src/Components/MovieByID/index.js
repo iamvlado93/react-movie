@@ -1,25 +1,25 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import ProfileHeader from '../ProfileHeader';
 
 import './index.css';
 
-function MovieByID(props) {
+function MovieById(props) {
+  const movies = useSelector((state) => state.movies);
+  // const card = movies.find((item) => item._id === props.match.params.id);
+  console.log('props', props);
+  console.log(movies);
+  // console.log('card', card);
+
   return (
-    <div className="page__movie-id">
+    <div className="movieId-page">
       <ProfileHeader />
-      <Link to={'/profile'}>
-        <button type="submit" className="btn btn-primary btn-ls btn-block">
-          Go back
-        </button>
-      </Link>
-      <div className="movie-id">
+      <div className="movieId">
         <h1>1</h1>
       </div>
     </div>
   );
 }
 
-export default MovieByID;
+export default MovieById;
