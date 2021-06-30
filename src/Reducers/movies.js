@@ -3,7 +3,7 @@ const reducer = (movies = [], action) => {
     case 'FETCH_ALL':
       return action.payload;
     case 'CREATE':
-      return movies;
+      return [...movies, action.payload];
     default:
       return movies;
   }

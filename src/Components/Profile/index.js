@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ProfileHeader from '../ProfileHeader';
-import getMovies from '../../Actions/movies';
+import { getMovies } from '../../Actions/movies';
 import { Card } from 'react-bootstrap';
 
 import './index.css';

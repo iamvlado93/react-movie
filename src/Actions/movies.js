@@ -1,6 +1,6 @@
 import * as API from '../API';
 
-const getMovies = () => async (dispatch) => {
+export const getMovies = () => async (dispatch) => {
   try {
     const { data } = await API.fetchMovies();
     dispatch({ type: 'FETCH_ALL', payload: data });
@@ -9,4 +9,11 @@ const getMovies = () => async (dispatch) => {
   }
 };
 
-export default getMovies;
+export const createMovie = (movie) => async (dispatch) => {
+  try {
+    const { data } = await API.createMovie(movie);
+    dispatch({ type: 'CREATE', payload: data });
+  } catch (err) {
+    console.log(err);
+  }
+};
