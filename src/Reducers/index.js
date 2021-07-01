@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import movies from './movies';
+import { createMovieReducer, fetchMovieReducer, movieDetailsReducer } from './movieReducer';
 
 export default combineReducers({
-  movies,
+  createMovieReducer,
+  fetchMovieReducer,
+  movieDetailsReducer,
 });

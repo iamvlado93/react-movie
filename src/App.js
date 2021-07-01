@@ -1,5 +1,3 @@
-import './App.css';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Body from './Components/Body';
@@ -13,6 +11,8 @@ import MovieById from './Components/MovieById';
 import PersonalDetails from './Components/PersonalDetails';
 
 import ROUTES from './Const/Routes';
+
+import './App.css';
 
 function App() {
   return (
