@@ -140,10 +140,6 @@ app.post("/admin", async (req, res) => {
   }
 });
 
-app.get("/movies", (req, res) => {
-  Movie.find().then((receivedMovie) => res.json(receivedMovie));
-});
-
 app.get("/profile", (req, res) => {
   Movie.find().then((receivedMovie) => res.json(receivedMovie));
 });

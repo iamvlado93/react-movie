@@ -23,7 +23,7 @@ export const getMovies = () => async (dispatch) => {
   }
 };
 
-export const createMovie = (movie) => async (dispatch) => {
+export const createMovie = () => async (dispatch) => {
   try {
     dispatch({ type: CREATE_MOVIE_REQUEST });
     const { data } = await axios.post('/admin');
