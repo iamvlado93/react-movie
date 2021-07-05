@@ -1,35 +1,27 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
 
 import ProfileHeader from '../ProfileHeader';
-import { movieInfo } from '../../Actions/movies';
 
 import './index.css';
 
-function MovieById(props) {
-  const movieDetailsReducer = useSelector((state) => state.movieDetailsReducer);
-  const { error, loading, movieId } = movieDetailsReducer;
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(movieInfo());
-    return () => {};
-  }, [dispatch]);
+function MovieById() {
+  const { id } = useParams();
 
   return (
     <div className="movieId-page">
       <ProfileHeader />
       <div className="movieId">
-        {loading ? (
-          <div className="loading">
-            <div></div>
-            <div></div>
-          </div>
-        ) : error ? (
-          <div className="error">{error}</div>
-        ) : (
-          <h1>{movieId}</h1>
-        )}
+        <Link className="previous-page" to={'/profile'}>
+          <button type="submit" className="btn btn-secondary btn-ls btn-block">
+            Go Back
+          </button>
+        </Link>
+        <div className="description">
+          <h3>{id}</h3>
+        </div>
       </div>
     </div>
   );

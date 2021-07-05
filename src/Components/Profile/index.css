@@ -11,6 +11,16 @@
   justify-content: center;
 }
 
+.next-page {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  padding: 1rem;
+  margin: 0.3rem;
+}
+
 .profile__search {
   margin: 1rem;
   width: 40rem;
@@ -20,8 +30,9 @@
 
 input[type='text'] {
   padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.185);
+  background-color: rgba(5, 5, 5, 0.185);
   font-size: 1.3rem;
+  color: rgb(183, 50, 216);
 }
 
 ::placeholder {

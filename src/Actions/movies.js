@@ -36,7 +36,7 @@ export const createMovie = () => async (dispatch) => {
 export const movieInfo = (movieId) => async (dispatch) => {
   try {
     dispatch({ type: MOVIE_INFO_REQUEST, payload: movieId });
-    const { data } = await axios.get('/profile/' + movieId);
+    const { data } = await axios.get('/profile/:id' + movieId);
     dispatch({ type: MOVIE_INFO_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: MOVIE_INFO_ERROR, payload: error.message });

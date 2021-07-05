@@ -145,11 +145,12 @@ app.get("/profile", (req, res) => {
 });
 
 app.get("/profile/:id", (req, res) => {
-  const movieId = req.params.id;
-  const movie = Movie.findById((foundMovie) => foundMovie._id === movieId);
-  if (movie) {
-    res.send(movie);
-  } else {
-    res.status(404).send({ msg: "Movie not found" });
+  try {
+    console.log(req.params.id);
+    Movie.findById(req.params.id).then((data) => {
+      res.status(200).json({ data });
+    });
+  } catch (error) {
+    console.log(error);
   }
 });
