@@ -53,53 +53,15 @@ function Profile({ movieInfo }) {
                 }
               })
               .map((movie, key) => (
-                <Link key={key} to={`/profile/${movie.movieDescription}`}>
-                  <Card
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-around',
-                      width: '16rem',
-                      height: '26rem',
-                      padding: '0.1rem',
-                      margin: '0.5rem',
-                      background: 'rgba(0, 0, 0, 0.905)',
-                      borderRadius: '20px',
-                      textAlign: 'center',
-                    }}
-                  >
-                    <Card.Img
-                      style={{
-                        width: '100%',
-                        height: '75%',
-                        borderRadius: '20px',
-                      }}
-                      src={movie.movieImage}
-                    />
-                    <Card.Title
-                      style={{
-                        textAlign: 'center',
-                        fontSize: '1.8rem',
-                        color: 'rgb(183, 50, 216)',
-                        fontFamily: 'Ma Shan Zheng',
-                      }}
-                    >
-                      {movie.movieName}
-                    </Card.Title>
-                    <Card.Subtitle
-                      style={{
-                        fontSize: '1.6rem',
-                        color: 'rgb(183, 50, 216)',
-                        fontFamily: 'Ma Shan Zheng',
-                      }}
-                    >
-                      &#11088;{movie.movieRating}
-                    </Card.Subtitle>
-                    <button type="submit" className="btn btn-secondary btn-ls btn-block">
-                      Add to Favourites
-                    </button>
-                  </Card>
-                </Link>
+                <div key={key} className="movie__container">
+                  <Link className="movie__details" to={`/profile/${movie.movieDescription}`}>
+                    <div className="movie__title">{movie.movieName}</div>
+                    <img className="movie__image" src={movie.movieImage} alt="poster" />
+                    <h3 className="movie__year">{movie.movieYear}</h3>
+                    <h3 className="movie__rating">&#11088;{movie.movieRating}</h3>
+                  </Link>
+                  <button className="button__favourites">Add to Favourites</button>
+                </div>
               ))
           )}
         </div>
