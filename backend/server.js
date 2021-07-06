@@ -136,12 +136,16 @@ app.post("/admin", async (req, res) => {
     });
     console.log(req.body);
   } catch (error) {
-    console.log(error);
+    res.status(409).json({ message: error.message });
   }
 });
 
 app.get("/profile", (req, res) => {
-  Movie.find().then((receivedMovie) => res.json(receivedMovie));
+  try {
+    Movie.find().then((receivedMovie) => res.status(200).json(receivedMovie));
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 });
 
 app.get("/profile/:id", (req, res) => {
@@ -151,6 +155,6 @@ app.get("/profile/:id", (req, res) => {
       res.status(200).json({ data });
     });
   } catch (error) {
-    console.log(error);
+    res.status(404).json({ message: error.message });
   }
 });

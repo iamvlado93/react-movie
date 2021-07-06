@@ -39,9 +39,11 @@ function Admin() {
       movieRating: '',
     });
     swal({
-      text: 'You have successfully registered!',
+      text: 'You have successfully added the movie!',
     });
   };
+
+  console.log(postMovie);
 
   return (
     <div className="admin-page">
