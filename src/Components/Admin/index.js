@@ -5,7 +5,7 @@ import FileBase from 'react-file-base64';
 import swal from 'sweetalert';
 
 import Header from '../Header';
-import { createMovie } from '../../Actions/movies';
+import { createNewMovie } from '../../Actions/movies';
 
 import './index.css';
 
@@ -27,7 +27,7 @@ function Admin() {
 
   const AddMovie = (e) => {
     e.preventDefault();
-    dispatch(createMovie(postMovie));
+    dispatch(createNewMovie(postMovie));
     setPostMovie({
       movieName: '',
       movieImage: '',
