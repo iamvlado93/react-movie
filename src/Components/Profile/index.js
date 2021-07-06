@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { Card } from 'react-bootstrap';
-
 import ProfileHeader from '../ProfileHeader';
 
 import { getMovies } from '../../Actions/movies';
 
 import './index.css';
 
-function Profile({ movieInfo }) {
+function Profile() {
   const [searchTerm, setSearhTerm] = useState('');
 
   const fetchMovieReducer = useSelector((state) => state.fetchMovieReducer);
@@ -20,8 +18,6 @@ function Profile({ movieInfo }) {
   useEffect(() => {
     dispatch(getMovies());
   }, [dispatch]);
-
-  console.log(movies);
 
   return (
     <div className="profile-page">

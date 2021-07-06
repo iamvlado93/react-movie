@@ -25,25 +25,25 @@ function Admin() {
   const { loading, error } = createMovieReducer;
   const dispatch = useDispatch();
 
-  const AddMovie = (e) => {
-    e.preventDefault();
-    dispatch(createNewMovie(postMovie));
-    setPostMovie({
-      movieName: '',
-      movieImage: '',
-      movieDescription: '',
-      movieCountry: '',
-      movieYear: '',
-      movieGenre: '',
-      movieDuration: '',
-      movieRating: '',
-    });
-    swal({
-      text: 'You have successfully added the movie!',
-    });
+  const AddMovie = () => {
+    try {
+      dispatch(createNewMovie(postMovie)).then((res) => {
+        setPostMovie({
+          movieName: '',
+          movieImage: '',
+          movieDescription: '',
+          movieCountry: '',
+          movieYear: '',
+          movieGenre: '',
+          movieDuration: '',
+          movieRating: '',
+        });
+        swal({
+          text: 'You have successfully added the movie!',
+        });
+      });
+    } catch (error) {}
   };
-
-  console.log(postMovie);
 
   return (
     <div className="admin-page">

@@ -51,7 +51,6 @@ function Registration() {
           withCredentials: true,
           url: 'http://localhost:5000/register',
         }).then((res) => {
-          console.log(res);
           swal({
             title: 'Well Done!',
             text: 'You have successfully registered!',
