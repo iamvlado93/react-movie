@@ -5,17 +5,50 @@
   min-height: 74vh;
 }
 
-button {
-  padding: 1rem;
-}
-
 .description {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   margin: 1rem;
   padding: 1rem;
-  width: 60%;
   color: rgb(255, 255, 255);
+}
+
+.description-container__left {
+  width: 30%;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.description-container__right {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem;
+  margin: 1rem;
+  background: rgba(0, 0, 0, 0.808);
 }
 
 .previous-page {
   width: 100%;
+}
+
+.movieId__description {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(183, 50, 216);
+}
+
+span {
+  color: rgb(255, 255, 255);
+}
+
+.movieId__country,
+.movieId__year,
+.movieId__genre,
+.movieId__duration,
+.movieId__rating {
+  font-size: 1.6rem;
+  color: rgb(183, 50, 216);
 }

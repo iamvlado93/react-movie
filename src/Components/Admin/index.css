@@ -1,10 +1,96 @@
 .admin-profile {
   display: flex;
+  color: #ffffff;
+  min-height: 75vh;
+}
+
+.admin-profile__right {
+  min-height: 75vh;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  color: #ffffff;
-  height: 75vh;
+  color: rgb(183, 50, 216);
+}
+
+.admin-profile__left {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 68%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie__container-admin {
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1rem;
+  height: 22rem;
+  width: 13rem;
+  background: rgba(0, 0, 0, 0.842);
+  border-radius: 20px;
+}
+
+.container-buttons-admin {
+  display: flex;
+}
+
+.movie__title-admin {
+  font-size: 1.2rem;
+  font-family: 'Ma Shan Zheng';
+}
+
+.movie__year-admin,
+.movie__rating-admin {
+  font-family: 'Ma Shan Zheng';
+  font-size: 0.8rem;
+}
+
+.movie__container-admin:hover {
+  transform: scale(1);
+}
+
+.movie__details-admin {
+  color: rgb(183, 50, 216);
+  text-decoration: none !important;
+}
+
+.movie__details-admin:hover {
+  color: rgb(183, 50, 216);
+  transition: 0.4s ease-in-out;
+}
+
+.movie__image-admin {
+  width: 90%;
+  height: 70%;
+}
+
+.button__edit-admin,
+.button__delete-admin {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 0.8rem;
+  background: transparent;
+  border-radius: 20px;
+  color: rgb(183, 50, 216);
+}
+
+.button__delete-admin:hover,
+.button__edit-admin:hover {
+  color: white;
+  transform: scale(1.05);
+  transition: 0.4s ease-in-out;
 }
 
 .error {
