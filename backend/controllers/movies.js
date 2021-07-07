@@ -37,4 +37,38 @@ const fetchMovies = (req, res) => {
   }
 };
 
-module.exports = { createMovie, fetchMovies };
+const deleteMovie = (req, res) => {
+  const id = req.params.id;
+  try {
+    Movie.findByIdAndDelete({ _id: id }, (req, res, err) => {});
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+const updateMovie = (req, res) => {
+  const updatedMovie = {
+    movieName: req.body.movieName,
+    movieImage: req.body.movieImage,
+    movieDescription: req.body.movieDescription,
+    movieCountry: req.body.movieCountry,
+    movieYear: req.body.movieYear,
+    movieGenre: req.body.movieGenre,
+    movieDuration: req.body.movieDuration,
+    movieRating: req.body.movieRating,
+  };
+  Movie.findByIdAndUpdate(
+    { _id: req.params.id },
+    { $set: updatedMovie },
+    (req, res, err) => {
+      if (!err) {
+        console.log("Item updated");
+        console.log(updateMovie);
+      } else {
+        console.log(err);
+      }
+    }
+  );
+};
+
+module.exports = { createMovie, fetchMovies, deleteMovie, updateMovie };
