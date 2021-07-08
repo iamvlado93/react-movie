@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import ProfileHeader from '../ProfileHeader';
 
@@ -9,6 +9,8 @@ import { getMovies } from '../../Actions/movies';
 import './index.css';
 
 function Profile() {
+  const { loginDetails } = useParams();
+
   const [searchTerm, setSearhTerm] = useState('');
 
   const fetchMovieReducer = useSelector((state) => state.fetchMovieReducer);

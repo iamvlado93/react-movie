@@ -8,7 +8,7 @@ import Profile from './Components/Profile';
 import Admin from './Components/Admin';
 import Favourites from './Components/Favourites';
 import MovieById from './Components/MovieById';
-import PersonalDetails from './Components/PersonalDetails';
+import Personal from './Components/Personal';
 
 import ROUTES from './Const/Routes';
 
@@ -38,11 +38,11 @@ function App() {
             <Route exact path={ROUTES.FAVOURITES}>
               <Favourites />
             </Route>
+            <Route exact path={ROUTES.PERSONAL_DETAILS}>
+              <Personal />
+            </Route>
             <Route exact path={ROUTES.MOVIE_ID}>
               <MovieById />
-            </Route>
-            <Route exact path={ROUTES.PERSONAL_DETAILS}>
-              <PersonalDetails />
             </Route>
           </Switch>
           <Footer />

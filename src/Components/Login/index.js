@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import axios from 'axios';
 
 import HeaderProfile from '../Header';
@@ -11,9 +11,9 @@ function SignIn() {
   const [logName, setLogName] = useState('');
   const [logPass, setLogPass] = useState('');
   const [logError, setLogError] = useState(false);
-  // const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
 
-  let history = useHistory();
+  // let history = useHistory();
 
   const login = async (e) => {
     try {
@@ -29,11 +29,16 @@ function SignIn() {
         url: 'http://localhost:5000/login',
       }).then((res) => {
         if (res.data.isAdmin) {
-          history.push('/admin');
+          // history.push('/admin');
+          setData(res.data);
+          console.log(res.data);
+          localStorage.setItem('user', JSON.stringify(data));
         } else {
           console.log(res);
-          history.push('/profile');
-          // setData(res.data);
+          // history.push('/profile');
+          setData(res.data);
+          console.log(res.data);
+          localStorage.setItem('user', JSON.stringify(data));
         }
       });
     } catch (err) {
@@ -66,11 +71,11 @@ function SignIn() {
             Submit
           </button>
           {logError && <p>Incorrect email or password</p>}
-          {/* {data && (
-          <h1>
-            Welcome {data.firstName} {data.lastName}
-          </h1>
-        )} */}
+          {data && (
+            <h1>
+              Welcome {data._id} {data.firstName} {data.lastName} {data.rePassword} {data.email}
+            </h1>
+          )}
         </form>
       </div>
     </div>
