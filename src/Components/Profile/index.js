@@ -41,6 +41,7 @@ function Profile() {
             <div className="error">{error}</div>
           ) : (
             movies
+              // eslint-disable-next-line array-callback-return
               .filter((movie) => {
                 if (searchTerm === '') {
                   return movie;
@@ -48,9 +49,9 @@ function Profile() {
                   return movie;
                 }
               })
-              .map((movie, key) => (
-                <div key={key} className="movie__container">
-                  <Link className="movie__details" to={`/profile/${movie.movieDescription}`}>
+              .map((movie) => (
+                <div movie={movie} key={movie._id} className="movie__container">
+                  <Link className="movie__details" to={`/profile/${movie._id}`}>
                     <div className="movie__title">{movie.movieName}</div>
                     <img className="movie__image" src={movie.movieImage} alt="poster" />
                     <h3 className="movie__year">{movie.movieYear}</h3>
