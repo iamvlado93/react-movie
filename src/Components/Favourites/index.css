@@ -5,6 +5,10 @@
   min-height: 75vh;
 }
 
+.previous-page {
+  height: 10%;
+}
+
 h1 {
   color: rgb(255, 255, 255);
 }

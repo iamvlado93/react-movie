@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// import { useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 import axios from 'axios';
 
 import HeaderProfile from '../Header';
@@ -13,17 +13,16 @@ function SignIn() {
   const [logError, setLogError] = useState(false);
   const [data, setData] = useState(null);
 
-  // let history = useHistory();
+  let history = useHistory();
 
-  const login = async (e) => {
+  const login = (e) => {
     try {
       e.preventDefault();
-      await axios({
+      axios({
         method: 'POST',
         data: {
           username: logName,
           password: logPass,
-          isAdmin: false,
         },
         withCredentials: true,
         url: 'http://localhost:5000/login',
@@ -32,13 +31,11 @@ function SignIn() {
           // history.push('/admin');
           setData(res.data);
           console.log(res.data);
-          localStorage.setItem('user', JSON.stringify(data));
         } else {
           console.log(res);
-          // history.push('/profile');
+          history.push('/profile');
           setData(res.data);
           console.log(res.data);
-          localStorage.setItem('user', JSON.stringify(data));
         }
       });
     } catch (err) {
