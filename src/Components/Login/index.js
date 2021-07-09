@@ -11,29 +11,31 @@ function SignIn() {
   const [logName, setLogName] = useState('');
   const [logPass, setLogPass] = useState('');
   const [logError, setLogError] = useState(false);
-  // const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
 
   let history = useHistory();
 
-  const login = async (e) => {
+  const login = (e) => {
     try {
       e.preventDefault();
-      await axios({
+      axios({
         method: 'POST',
         data: {
           username: logName,
           password: logPass,
-          isAdmin: false,
         },
         withCredentials: true,
         url: 'http://localhost:5000/login',
       }).then((res) => {
         if (res.data.isAdmin) {
-          history.push('/admin');
+          // history.push('/admin');
+          setData(res.data);
+          console.log(res.data);
         } else {
           console.log(res);
           history.push('/profile');
-          // setData(res.data);
+          setData(res.data);
+          console.log(res.data);
         }
       });
     } catch (err) {
@@ -66,11 +68,11 @@ function SignIn() {
             Submit
           </button>
           {logError && <p>Incorrect email or password</p>}
-          {/* {data && (
-          <h1>
-            Welcome {data.firstName} {data.lastName}
-          </h1>
-        )} */}
+          {data && (
+            <h1>
+              Welcome {data._id} {data.firstName} {data.lastName} {data.rePassword} {data.email}
+            </h1>
+          )}
         </form>
       </div>
     </div>

@@ -49,8 +49,23 @@ const userLogin = async (req, res, next) => {
   }
 };
 
+const userLogOut = (req, res) => {
+  req.logout();
+  res.redirect("/");
+};
+
 const getUsers = (req, res) => {
   User.find().then((receivedUser) => res.json(receivedUser));
 };
 
-module.exports = { userRegister, userLogin, getUsers };
+const authUserInfo = (req, res) => {
+  res.send(req.user);
+};
+
+module.exports = {
+  userRegister,
+  userLogin,
+  getUsers,
+  authUserInfo,
+  userLogOut,
+};
