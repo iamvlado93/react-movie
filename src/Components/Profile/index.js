@@ -33,9 +33,10 @@ function Profile() {
         ></input>
         <div className="profile__container">
           {loading ? (
-            <div className="loading">
-              <div></div>
-              <div></div>
+            <div class="loader">
+              <div class="inner one"></div>
+              <div class="inner two"></div>
+              <div class="inner three"></div>
             </div>
           ) : error ? (
             <div className="error">{error}</div>
