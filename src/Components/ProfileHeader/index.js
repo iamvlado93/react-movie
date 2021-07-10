@@ -14,7 +14,6 @@ function ProfileHeader() {
     try {
       await axios.get('/logout').then((res) => {
         history.push('/');
-        console.log(res);
       });
     } catch (err) {
       console.log(err);
