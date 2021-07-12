@@ -13,6 +13,7 @@ function ProfileHeader() {
   const userLogOut = async (e) => {
     try {
       await axios.get('/logout').then((res) => {
+        localStorage.clear();
         history.push('/');
       });
     } catch (err) {
