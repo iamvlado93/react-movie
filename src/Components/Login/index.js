@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
+import {  useDispatch } from 'react-redux';
 
 import { useHistory } from 'react-router';
 import axios from 'axios';
 
 import HeaderProfile from '../Header';
+import { getAuthUserInfo } from '../../Actions/users';
 
 import './index.css';
 
-function SignIn() {
+function SignIn(props) {
   const [logName, setLogName] = useState('');
   const [logPass, setLogPass] = useState('');
   const [logError, setLogError] = useState(false);
-  const [data, setData] = useState(null);
 
-  let history = useHistory();
+  const dispatch = useDispatch();
+
+  const history = useHistory();
 
   const login = (e) => {
     try {
@@ -28,14 +31,11 @@ function SignIn() {
         url: 'http://localhost:5000/login',
       }).then((res) => {
         if (res.data.isAdmin) {
-          // history.push('/admin');
-          setData(res.data);
-          console.log(res.data);
+          history.push('/admin');
+          dispatch(getAuthUserInfo(res.data))
         } else {
-          console.log(res);
           history.push('/profile');
-          setData(res.data);
-          console.log(res.data);
+          dispatch(getAuthUserInfo(res.data))
         }
       });
     } catch (err) {
@@ -68,11 +68,6 @@ function SignIn() {
             Submit
           </button>
           {logError && <p>Incorrect email or password</p>}
-          {data && (
-            <h1>
-              Welcome {data._id} {data.firstName} {data.lastName} {data.rePassword} {data.email}
-            </h1>
-          )}
         </form>
       </div>
     </div>

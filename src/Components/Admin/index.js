@@ -6,7 +6,7 @@ import FileBase from 'react-file-base64';
 import swal from 'sweetalert';
 import axios from 'axios';
 
-import Header from '../Header';
+import ProfileHeader from '../ProfileHeader';
 import { createNewMovie } from '../../Actions/movies';
 import { getMovies } from '../../Actions/movies';
 import ROUTES from '../../Const/Routes';
@@ -114,13 +114,14 @@ function Admin() {
 
   return (
     <div className="admin-page">
-      <Header />
+      <ProfileHeader/>
       <div className="admin-profile">
         <div className="admin-profile__left">
           {loading ? (
-            <div className="loading">
-              <div></div>
-              <div></div>
+            <div class="loader">
+              <div class="inner one"></div>
+              <div class="inner two"></div>
+              <div class="inner three"></div>
             </div>
           ) : error ? (
             <div className="error">{error}</div>

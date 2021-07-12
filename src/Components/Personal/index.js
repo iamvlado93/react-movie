@@ -1,5 +1,5 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
@@ -8,14 +8,9 @@ import ProfileHeader from '../ProfileHeader';
 import './index.css';
 
 function Personal() {
-  const [userData, setUserData] = useState('');
 
-  const getUserInfo = async () => {
-    await axios.get('http://localhost:5000/profile/user').then((res) => {
-      setUserData(res.data);
-      console.log(res);
-    });
-  };
+  const userInfo = useSelector((state) => state.userAuthReducer.users);
+  const { loading, error } = userInfo;
 
   return (
     <div className="personal-page">
@@ -27,25 +22,21 @@ function Personal() {
           </button>
         </Link>
         <div className="user-container">
-          <button onClick={getUserInfo} type="submit" className="button__user-info">
-            Get User Info
-          </button>
-          {userData ? (
-            <div className="user-info">
-              <h2>
-                <p>Name:</p> {userData.firstName} {userData.lastName}
-              </h2>
-              <h2>
-                <p>Email:</p> {userData.email}
-              </h2>
-              <h2>
-                <p>Password:</p> {userData.rePassword}
-              </h2>
-              <h2>
-                <p>Id:</p> {userData._id}
-              </h2>
+        {loading ? (
+            <div className="loading">
+              <div></div>
+              <div></div>
             </div>
-          ) : null}
+          ) : error ? (
+            <div className="error">{error}</div>
+          ) : (
+            <div className="user-info">
+                <h2>{userInfo.firstName} {userInfo.lastName}</h2>
+                <h2>{userInfo.email}</h2>
+                <h2>{userInfo.rePassword}</h2>
+                <h2>{userInfo._id}</h2>
+            </div>
+          )}
         </div>
       </div>
     </div>
