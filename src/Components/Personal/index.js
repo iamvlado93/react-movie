@@ -8,7 +8,6 @@ import ProfileHeader from '../ProfileHeader';
 import './index.css';
 
 function Personal() {
-
   const userInfo = useSelector((state) => state.userAuthReducer.users);
   const { loading, error } = userInfo;
 
@@ -22,7 +21,7 @@ function Personal() {
           </button>
         </Link>
         <div className="user-container">
-        {loading ? (
+          {loading ? (
             <div className="loading">
               <div></div>
               <div></div>
@@ -31,10 +30,12 @@ function Personal() {
             <div className="error">{error}</div>
           ) : (
             <div className="user-info">
-                <h2>{userInfo.firstName} {userInfo.lastName}</h2>
-                <h2>{userInfo.email}</h2>
-                <h2>{userInfo.rePassword}</h2>
-                <h2>{userInfo._id}</h2>
+              <h2>
+                {userInfo.firstName} {userInfo.lastName}
+              </h2>
+              <h2>{userInfo.email}</h2>
+              <h2>{userInfo.rePassword}</h2>
+              <h2>{userInfo._id}</h2>
             </div>
           )}
         </div>
