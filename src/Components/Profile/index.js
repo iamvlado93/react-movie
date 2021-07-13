@@ -7,9 +7,11 @@ import ProfileHeader from '../ProfileHeader';
 import { getMovies } from '../../Actions/movies';
 
 import './index.css';
+import axios from 'axios';
 
 function Profile() {
   const [searchTerm, setSearhTerm] = useState('');
+  const [favourites, setFavourites] = useState([]);
 
   const fetchMovieReducer = useSelector((state) => state.fetchMovieReducer);
   const { movies, error, loading } = fetchMovieReducer;
@@ -18,6 +20,12 @@ function Profile() {
   useEffect(() => {
     dispatch(getMovies());
   }, [dispatch]);
+
+  const addFavouriteMovie = (movie) => {
+    const favouriteList = [...favourites, movie];
+    setFavourites(favouriteList);
+    console.log(favouriteList);
+  };
 
   return (
     <div className="profile-page">
@@ -58,7 +66,9 @@ function Profile() {
                     <h3 className="movie__year">{movie.movieYear}</h3>
                     <h3 className="movie__rating">&#11088;{movie.movieRating}</h3>
                   </Link>
-                  <button className="button__favourites">Add to Favourites</button>
+                  <button onClick={() => addFavouriteMovie(movie)} className="button__favourites">
+                    Add to Favourites
+                  </button>
                 </div>
               ))
           )}

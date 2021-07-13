@@ -1,6 +1,8 @@
 import * as API from '../API';
 
 import {
+  CREATE_FAV_MOVIE_ERROR,
+  CREATE_FAV_MOVIE_REQUEST,
   CREATE_MOVIE_ERROR,
   CREATE_MOVIE_REQUEST,
   CREATE_MOVIE_SUCCESS,
@@ -40,5 +42,14 @@ export const deleteMovie = (id) => async (dispatch) => {
     dispatch({ type: DELETE_MOVIE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: DELETE_MOVIE_ERROR, payload: error.message });
+  }
+};
+
+export const favMovie = (data) => async (dispatch) => {
+  try {
+    dispatch({ type: CREATE_FAV_MOVIE_REQUEST });
+    dispatch({ type: CREATE_MOVIE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: CREATE_FAV_MOVIE_ERROR, payload: error.message });
   }
 };
