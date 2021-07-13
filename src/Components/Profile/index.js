@@ -7,7 +7,6 @@ import ProfileHeader from '../ProfileHeader';
 import { getMovies } from '../../Actions/movies';
 
 import './index.css';
-import axios from 'axios';
 
 function Profile() {
   const [searchTerm, setSearhTerm] = useState('');
@@ -24,7 +23,7 @@ function Profile() {
   const addFavouriteMovie = (movie) => {
     const favouriteList = [...favourites, movie];
     setFavourites(favouriteList);
-    console.log(favouriteList);
+    // console.log(favouriteList);
   };
 
   return (

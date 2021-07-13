@@ -13,7 +13,7 @@ function MovieById() {
   const { id } = useParams();
 
   const movie = fetchMovieReducer.find((item) => item._id === id);
-  console.log(movie);
+
   return (
     <div className="movieId-page">
       <ProfileHeader />
