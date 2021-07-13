@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { useHistory } from 'react-router';
 import axios from 'axios';
@@ -9,7 +9,7 @@ import { getAuthUserInfo } from '../../Actions/users';
 
 import './index.css';
 
-function SignIn(props) {
+function SignIn() {
   const [logName, setLogName] = useState('');
   const [logPass, setLogPass] = useState('');
   const [logError, setLogError] = useState(false);
@@ -32,10 +32,10 @@ function SignIn(props) {
       }).then((res) => {
         if (res.data.isAdmin) {
           history.push('/admin');
-          dispatch(getAuthUserInfo(res.data))
+          dispatch(getAuthUserInfo(res.data));
         } else {
           history.push('/profile');
-          dispatch(getAuthUserInfo(res.data))
+          dispatch(getAuthUserInfo(res.data));
         }
       });
     } catch (err) {
