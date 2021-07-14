@@ -23,12 +23,10 @@
 
 .movie__title {
   font-size: 2.2rem;
-  font-family: 'Ma Shan Zheng';
 }
 
 .movie__year,
 .movie__rating {
-  font-family: 'Ma Shan Zheng';
   font-size: 1.5rem;
 }
 

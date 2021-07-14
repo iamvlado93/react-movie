@@ -21,7 +21,6 @@
   margin-left: 1rem;
   font-size: 3.6rem;
   color: rgb(183, 50, 216);
-  font-family: 'Ma Shan Zheng';
 }
 
 .header-logo:hover {
@@ -34,7 +33,6 @@
   width: 7rem;
   margin: 0.5rem;
   padding: 0.5rem;
-  font-family: 'Ma Shan Zheng';
   font-size: 1.4rem;
   color: rgb(183, 50, 216);
   border: 2px solid rgb(183, 50, 216);
