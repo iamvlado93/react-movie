@@ -25,8 +25,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.6rem;
+  margin: 0.6rem;
   background: rgba(0, 0, 0, 0.808);
 }
 
@@ -35,7 +35,7 @@
 }
 
 .movieId__description {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: rgb(183, 50, 216);
 }
@@ -49,6 +49,7 @@ span {
 .movieId__genre,
 .movieId__duration,
 .movieId__rating {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  font-weight: bold;
   color: rgb(183, 50, 216);
 }

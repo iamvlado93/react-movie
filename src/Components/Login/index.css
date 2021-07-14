@@ -4,7 +4,7 @@
   justify-content: center;
   flex-direction: column;
   color: #ffffff;
-  height: 75vh;
+  height: 78vh;
 }
 
 .signin-form {
@@ -20,7 +20,7 @@ h2 {
   color: rgb(140, 0, 175);
 }
 
-p {
+.login-error {
   display: flex;
   align-items: center;
   justify-content: center;

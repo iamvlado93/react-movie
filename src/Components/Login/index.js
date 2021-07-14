@@ -67,7 +67,7 @@ function SignIn() {
           <button type="submit" className="btn btn-secondary btn-lg btn-block">
             Submit
           </button>
-          {logError && <p>Incorrect email or password</p>}
+          {logError && <p className='login-error'>Incorrect email or password</p>}
         </form>
       </div>
     </div>

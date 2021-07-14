@@ -4,12 +4,17 @@
   justify-content: center;
   flex-direction: column;
   color: #ffffff;
-  height: 75vh;
+  height: 78vh;
 }
 
 .registration-form {
   padding: 1rem;
   margin: 1rem;
+}
+
+.form-group {
+  padding: 0px;
+  margin: 0.5rem;
 }
 
 h2 {
@@ -20,13 +25,13 @@ h2 {
   color: rgb(140, 0, 175);
 }
 
-p {
+.reg-error {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0.1rem;
   padding: 0.1rem;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: red;
 }

@@ -83,7 +83,7 @@ function Registration() {
               value={values.regFirstName}
               className="form-control"
             />
-            {touched.regFirstName && errors.regFirstName ? <p>{errors.regFirstName}</p> : null}
+            {touched.regFirstName && errors.regFirstName ? <p className='reg-error'>{errors.regFirstName}</p> : null}
           </div>
           <div className="form-group">
             <input
@@ -95,7 +95,7 @@ function Registration() {
               value={values.regLastName}
               className="form-control"
             />
-            {touched.regLastName && errors.regLastName ? <p>{errors.regLastName}</p> : null}
+            {touched.regLastName && errors.regLastName ? <p className='reg-error'>{errors.regLastName}</p> : null}
           </div>
           <div className="form-group">
             <input
@@ -107,7 +107,7 @@ function Registration() {
               value={values.regEmail}
               className="form-control"
             />
-            {touched.regEmail && errors.regEmail ? <p>{errors.regEmail}</p> : null}
+            {touched.regEmail && errors.regEmail ? <p className='reg-error'>{errors.regEmail}</p> : null}
           </div>
           <div className="form-group">
             <input
@@ -119,7 +119,7 @@ function Registration() {
               value={values.regPassword}
               className="form-control"
             />
-            {touched.regPassword && errors.regPassword ? <p>{errors.regPassword}</p> : null}
+            {touched.regPassword && errors.regPassword ? <p className='reg-error'>{errors.regPassword}</p> : null}
           </div>
           <div className="form-group">
             <input
@@ -132,13 +132,13 @@ function Registration() {
               className="form-control"
             />
             {touched.regConfPassword && errors.regConfPassword ? (
-              <p>{errors.regConfPassword}</p>
+              <p className='reg-error'>{errors.regConfPassword}</p>
             ) : null}
           </div>
           <button type="submit" className="btn btn-secondary btn-ls btn-block">
             Submit
           </button>
-          {regError && <p>Such email already exists</p>}
+          {regError && <p className='reg-error'>Such email already exists</p>}
         </form>
       </div>
     </div>
