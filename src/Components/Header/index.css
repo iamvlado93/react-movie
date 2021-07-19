@@ -53,3 +53,19 @@
   text-decoration: none;
   transition: 0.4s ease-in-out;
 }
+
+@media screen and (max-width: 700px) {
+  .header-logo {
+    padding: 0.1rem;
+    margin-left: 1rem;
+    font-size: 2.8rem;
+  }
+
+  .header-button {
+    width: 4.8rem;
+    height: 2.2rem;
+    margin: 0.2rem;
+    padding: 0.2rem;
+    font-size: 0.9rem;
+  }
+}

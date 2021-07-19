@@ -162,3 +162,13 @@
     transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
   }
 }
+
+@media screen and (max-width: 1115px) {
+  .admin-profile {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+  }
+}

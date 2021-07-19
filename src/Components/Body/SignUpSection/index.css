@@ -30,3 +30,15 @@
   transition: 0.4s ease-in-out;
   text-decoration: none;
 }
+
+@media screen and (max-width: 700px) {
+  .container-title {
+    font-size: 4rem;
+  }
+
+  .container-signup {
+    padding: 0.2rem;
+    margin: 0.2rem;
+    font-size: 3rem;
+  }
+}
