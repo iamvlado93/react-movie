@@ -1,4 +1,5 @@
 const Movie = require("../models/movieSchema.js");
+const User = require("../models/userSchema.js");
 
 const createMovie = async (req, res) => {
   try {
@@ -71,4 +72,28 @@ const updateMovie = (req, res) => {
   );
 };
 
-module.exports = { createMovie, fetchMovies, deleteMovie, updateMovie };
+const addFavMovie = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.body.userId });
+    console.log(user);
+    user.favourites.push(req.body.movieId);
+    user.save();
+    return res.status(200).json();
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+const getFavMovie = async (req, res) => {
+  const movie = await Movie.findOne({ _id: req.body.movieId });
+  console.log(movie);
+};
+
+module.exports = {
+  createMovie,
+  fetchMovies,
+  deleteMovie,
+  updateMovie,
+  addFavMovie,
+  getFavMovie,
+};

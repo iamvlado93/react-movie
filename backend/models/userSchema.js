@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, require: true },
   rePassword: { type: String, require: true },
   isAdmin: { type: Boolean, required: true, default: false },
+  favourites: [{ type: String }],
 });
 
 const User = mongoose.model("User", UserSchema);

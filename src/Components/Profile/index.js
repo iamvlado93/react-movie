@@ -7,10 +7,12 @@ import ProfileHeader from '../ProfileHeader';
 import { getMovies } from '../../Actions/movies';
 
 import './index.css';
+import axios from 'axios';
 
 function Profile() {
   const [searchTerm, setSearhTerm] = useState('');
-  const [favourites, setFavourites] = useState([]);
+
+  const userId = useSelector((state) => state.userAuthReducer.users._id);
 
   const fetchMovieReducer = useSelector((state) => state.fetchMovieReducer);
   const { movies, error, loading } = fetchMovieReducer;
@@ -21,9 +23,13 @@ function Profile() {
   }, [dispatch]);
 
   const addFavouriteMovie = (movie) => {
-    const favouriteList = [...favourites, movie];
-    setFavourites(favouriteList);
-    // console.log(favouriteList);
+    try {
+      axios
+        .post('http://localhost:5000/favourites', { movieId: movie._id, userId })
+        .then((res) => console.log(res.data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
