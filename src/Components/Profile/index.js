@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import ProfileHeader from '../ProfileHeader';
 
 import { getMovies } from '../../Actions/movies';
 
 import './index.css';
-import axios from 'axios';
 
 function Profile() {
   const [searchTerm, setSearhTerm] = useState('');

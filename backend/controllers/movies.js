@@ -85,8 +85,15 @@ const addFavMovie = async (req, res) => {
 };
 
 const getFavMovie = async (req, res) => {
-  const movie = await Movie.findOne({ _id: req.body.movieId });
-  console.log(movie);
+  try {
+    const user = await User.findOne({ _id: req.body.userId });
+    const favourites = user.favourites;
+    favourites.map((favMovie) => {
+      return favMovie;
+    });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
 
 module.exports = {
