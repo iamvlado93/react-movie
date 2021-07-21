@@ -1,0 +1,71 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 11vh;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(1, 7, 17, 1) 100%,
+    rgba(163, 1, 212, 1) 100%
+  );
+}
+
+.header-buttons {
+  margin-top: 1rem;
+  display: flex;
+  list-style-type: none;
+}
+
+.header-logo {
+  padding: 0.1rem;
+  margin-left: 1rem;
+  font-size: 3.6rem;
+  color: rgb(183, 50, 216);
+}
+
+.header-logo:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+
+.header-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8rem;
+  height: 2.5rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  color: rgb(183, 50, 216);
+  border: 2px solid rgb(183, 50, 216);
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  border: 2px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 700px) {
+  .header-logo {
+    padding: 0.1rem;
+    margin-left: 1rem;
+    font-size: 2.8rem;
+  }
+
+  .header-button {
+    width: 4.8rem;
+    height: 2.2rem;
+    margin: 0.2rem;
+    padding: 0.2rem;
+    font-size: 0.9rem;
+  }
+}

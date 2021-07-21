@@ -1,0 +1,14 @@
+.favourites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 78vh;
+}
+
+.previous-page {
+  height: 10%;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+}

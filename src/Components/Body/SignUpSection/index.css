@@ -1,0 +1,44 @@
+.body-container {
+  padding: 0.5rem;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-title {
+  font-size: 6rem;
+  font-weight: bold;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  color: rgb(183, 50, 216);
+}
+
+.container-signup {
+  padding: 0.2rem;
+  margin: 0.2rem;
+  font-size: 4rem;
+  font-weight: bold;
+  color: rgb(183, 50, 216);
+  background: transparent;
+  cursor: pointer;
+}
+
+.container-signup:hover {
+  color: rgb(255, 255, 255);
+  transition: 0.4s ease-in-out;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .container-title {
+    font-size: 4rem;
+  }
+
+  .container-signup {
+    padding: 0.2rem;
+    margin: 0.2rem;
+    font-size: 3rem;
+  }
+}

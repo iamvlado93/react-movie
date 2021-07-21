@@ -1,0 +1,46 @@
+.section-tv {
+  height: 90vh;
+}
+
+.tv-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container-right,
+.container-left {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  width: 25rem;
+  height: 25rem;
+}
+
+.container-right {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: rgb(255, 255, 255);
+}
+
+.container-right p {
+  font-size: 2.8rem;
+  color: rgb(183, 50, 216);
+}
+
+@media screen and (max-width: 855px) {
+  .tv-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-right p {
+    margin: 1rem;
+    font-size: 2rem;
+    color: rgb(183, 50, 216);
+  }
+}
